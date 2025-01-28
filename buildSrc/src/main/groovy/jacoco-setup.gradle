@@ -1,0 +1,50 @@
+plugins {
+    id 'jacoco'
+}
+
+tasks.named('test', Test) {
+    finalizedBy tasks.named('jacocoTestReport')
+}
+
+tasks.named('check').configure {
+    dependsOn tasks.named('jacocoTestCoverageVerification', JacocoCoverageVerification)
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+        html.required = true
+    }
+
+    afterEvaluate {
+        classDirectories.from = files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: excludedFromCoverage)
+        })
+    }
+
+    dependsOn tasks.named('compileJava'), tasks.named('test')
+}
+
+jacocoTestCoverageVerification {
+    afterEvaluate {
+        classDirectories.from = files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: excludedFromCoverage)
+        })
+    }
+
+    violationRules {
+        rule {
+            limit {
+                counter = 'INSTRUCTION'
+                element = 'CLASS'
+                minimum = 0.0
+            }
+            limit {
+                counter = 'INSTRUCTION'
+                element = 'CLASS'
+                minimum = 0.0
+            }
+        }
+    }
+}
+

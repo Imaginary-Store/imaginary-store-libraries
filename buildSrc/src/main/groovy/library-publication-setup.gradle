@@ -1,0 +1,32 @@
+plugins {
+    id 'maven-publish'
+}
+
+tasks.register('sourceJar', Jar) {
+    archiveClassifier = 'sources'
+    from sourceSets.main.allJava
+}
+
+tasks.register('zipTestResults', Zip) {
+    dependsOn tasks.named('test')
+    archiveClassifier = 'audit'
+    from projectDir
+
+}
+
+tasks.named('jar').configure {
+    dependsOn tasks.named('sourceJar')
+}
+
+group = 'org.imaginarystore.libraries'
+
+//publishing {
+//    publication {
+//        myArtifact(MavenPublication) {
+//            from components.java
+//
+//            artifact tasks.named('sourceJar').get()
+//            artifact tasks.named('zipTestResults').get()
+//        }
+//    }
+//}

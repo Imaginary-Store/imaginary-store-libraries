@@ -1,0 +1,9 @@
+plugins {
+    id 'java-setup'
+    id 'version-setup'
+    id 'library-publication-setup'
+    id 'test-setup'
+    id 'jacoco-setup'
+    id 'repository-setup'
+    id 'common-dependencies'
+}
