@@ -1,0 +1,5 @@
+version = '1.0.0-L'
+
+if (project.hasProperty('buildVersion')) {
+    version = project.findProperty('buildVersion')
+}

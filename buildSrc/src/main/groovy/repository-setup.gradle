@@ -1,0 +1,14 @@
+repositories {
+    if (version.contains('L')) {
+        mavenLocal()
+    }
+
+    maven {
+        url 'https://imaginary-store-267097781374.d.codeartifact.ap-south-1.amazonaws.com/maven/imaginary-store/'
+        credentials {
+            username "aws"
+            password System.env.CODEARTIFACT_AUTH_TOKEN
+        }
+    }
+}
+
