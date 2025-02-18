@@ -3,11 +3,19 @@ repositories {
         mavenLocal()
     }
 
+//    maven {
+//        url 'https://imaginary-store-267097781374.d.codeartifact.ap-south-1.amazonaws.com/maven/imaginary-store/'
+//        credentials {
+//            username "aws"
+//            password System.env.CODEARTIFACT_AUTH_TOKEN
+//        }
+//    }
+
     maven {
-        url 'https://imaginary-store-267097781374.d.codeartifact.ap-south-1.amazonaws.com/maven/imaginary-store/'
+        url "https://repo.repsy.io/mvn/swagata0207/imaginarystore"
         credentials {
-            username "aws"
-            password System.env.CODEARTIFACT_AUTH_TOKEN
+            username "swagata0207"
+            password "na@7RtX3@r"
         }
     }
 }

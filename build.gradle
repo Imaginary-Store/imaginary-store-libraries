@@ -1,13 +1,13 @@
-plugins {
-    id 'org.sonarqube' version '6.0.1.5171'
-}
-
-sonar {
-    properties {
-        property 'sonar.projectKey', 'Imaginary-Store_imaginary-store-libraries'
-        property 'sonar.organization', 'imaginary-store'
-        property 'sonar.host.url', 'https://sonarcloud.io'
-        property 'sonar.java.source', '17'
-        property 'sonar.java.target', '17'
-    }
-}
+//plugins {
+//    id 'org.sonarqube' version '6.0.1.5171'
+//}
+//
+//sonar {
+//    properties {
+//        property 'sonar.projectKey', 'Imaginary-Store_imaginary-store-libraries'
+//        property 'sonar.organization', 'imaginary-store'
+//        property 'sonar.host.url', 'https://sonarcloud.io'
+//        property 'sonar.java.source', '17'
+//        property 'sonar.java.target', '17'
+//    }
+//}
