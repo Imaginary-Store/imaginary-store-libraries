@@ -1,0 +1,42 @@
+plugins {
+    id 'maven-publish'
+}
+
+tasks.register('sourceJar', Jar) {
+    archiveClassifier = 'sources'
+    from sourceSets.main.allJava
+}
+
+tasks.register('zipTestResults', Zip) {
+    dependsOn tasks.named('test')
+    archiveClassifier = 'audit'
+    from projectDir
+
+}
+
+tasks.named('jar').configure {
+    dependsOn tasks.named('sourceJar')
+}
+
+group = 'org.imaginarystore.libraries'
+
+//publishing {
+//    publication {
+//        myArtifact(MavenPublication) {
+//            from components.java
+//
+//            artifact tasks.named('sourceJar').get()
+//            artifact tasks.named('zipTestResults').get()
+//        }
+//    }
+//
+//    repositories {
+//        maven {
+//            url "https://repo.repsy.io/mvn/swagata0207/imaginarystore"
+//            credentials {
+//                username "swagata0207"
+//                password "na@7RtX3@r"
+//            }
+//        }
+//    }
+//}
