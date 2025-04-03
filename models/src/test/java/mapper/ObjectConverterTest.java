@@ -11,12 +11,22 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.instancio.Select.field;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {ObjectConverterImpl.class})
 class ObjectConverterTest {
 
     ObjectConverter objectConverter = Mappers.getMapper(ObjectConverter.class);
+
+    @Test
+    void objectConverterNullTest() {
+        CommonUserDTO exportedUserDTO = objectConverter.exportDto(null);
+        CommonUserEntity exportedUser = objectConverter.exportEntity(null);
+
+        assertNull(exportedUser);
+        assertNull(exportedUserDTO);
+    }
 
     @Test
     void objectConverterTester() {
