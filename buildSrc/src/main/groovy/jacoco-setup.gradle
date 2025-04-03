@@ -37,14 +37,13 @@ jacocoTestCoverageVerification {
             limit {
                 counter = 'INSTRUCTION'
                 element = 'CLASS'
-                minimum = 0.0
+                minimum = 0.8
             }
             limit {
                 counter = 'INSTRUCTION'
                 element = 'CLASS'
-                minimum = 0.0
+                minimum = 0.8
             }
         }
     }
 }
-
