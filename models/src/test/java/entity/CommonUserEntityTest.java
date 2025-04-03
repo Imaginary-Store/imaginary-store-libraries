@@ -4,12 +4,11 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-class CommonUserEntityTester {
+class CommonUserEntityTest {
 
     @Test
     void commonUserEntityTester() {
         CommonUserEntity commonUser = new CommonUserEntity();
-
         assertNotNull(commonUser);
     }
 }
