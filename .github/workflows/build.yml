@@ -1,4 +1,4 @@
-name: SonarQube
+name: Imaginary Store Libraries Pipeline
 on:
   push:
     branches:
@@ -17,7 +17,13 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: 17
-          distribution: 'zulu' # Alternative distribution options are available
+          distribution: 'temurin' # Alternative distribution options are available
+      - name: Setup Gradle 8.10
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.10" # Quotes required to prevent YAML converting to number
+      - name: Build with Gradle 8.10
+        run: gradle build
       - name: Cache SonarQube packages
         uses: actions/cache@v4
         with:
@@ -35,3 +41,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: ./gradlew build sonar --info
+  publish:
+    name: Publish to Repsy
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    steps:
+      - name: Upload artifact
+        run: gradle publish
