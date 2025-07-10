@@ -4,9 +4,9 @@ plugins {
 
 sonarqube {
     properties {
-        property 'sonar.host.url', "https://sonarcloud.io/"  // Replace with your SonarQube server URL
-        property 'sonar.projectKey', 'imaginary-store'    // Replace with your project key
-        property 'sonar.sources', 'src/main'// Replace with your token
+        property 'sonar.projectKey', 'Imaginary-Store_imaginary-store-libraries'
+        property 'sonar.organization', 'imaginary-store'
+        property 'sonar.host.url', 'https://sonarcloud.io'
         // Add other properties as needed
     }
 }
