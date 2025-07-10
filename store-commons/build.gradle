@@ -1,0 +1,18 @@
+buildscript {
+    ext {
+        excludedFromCoverage = []
+    }
+}
+
+plugins {
+    id 'common-setup-conventions'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+
+}
