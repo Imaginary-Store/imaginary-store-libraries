@@ -1,12 +1,14 @@
-node {
+pipeline {
+    agent any
+
     stage('Build') {
         steps {
-            sh 'gradle clean build'
+            sh './gradlew clean build'
         }
     }
     stage('SonarCloud analysis') {
         withSonarQubeEnv() { // Will pick the global server connection you have configured
-            sh 'gradle sonarqube'
+            sh './gradlew sonar'
         }
     }
 }
