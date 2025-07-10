@@ -1,1 +1,4 @@
 rootProject.name = "imaginary-store-libraries"
+
+include 'store-commons'
+include 'store-models'
