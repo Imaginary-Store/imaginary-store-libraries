@@ -1,0 +1,13 @@
+repositories {
+    if (version.contains('L')) {
+        mavenLocal()
+    }
+
+    maven {
+        url "https://repo.repsy.io/mvn/swagata0207/imaginarystore"
+//        credentials {
+//            username "swagata0207"
+//            password "na@7RtX3@r"
+//        }
+    }
+}
