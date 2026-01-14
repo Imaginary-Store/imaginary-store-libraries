@@ -1,5 +1,5 @@
 ##### Story/Branch: 
-<your-branch>
+*your-branch*
 
 ##### Details:
-Write your PR details here.
+*Write your PR details here.*
