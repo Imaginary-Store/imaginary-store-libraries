@@ -45,7 +45,7 @@ jobs:
     name: Publish to Repository
     needs: build
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     steps:
       - name: Upload artifact
         env:
