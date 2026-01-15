@@ -47,6 +47,8 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     steps:
+      - name: Generate gradle wrapper
+        run: gradle wrapper
       - name: Upload artifact
         env:
           REPO_USR: ${{ secrets.REPOSITORY_USER }}
