@@ -51,4 +51,4 @@ jobs:
         env:
           REPO_USR: ${{ secrets.REPOSITORY_USER }}
           REPO_PWD: ${{ secrets.REPOSITORY_PWD }}
-        run: gradle publish -PmavenUsername="$REPO_USR" -PmavenPassword="$REPO_PWD"
+        run: ./gradlew publish -PmavenUsername="$REPO_USR" -PmavenPassword="$REPO_PWD"
