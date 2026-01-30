@@ -5,13 +5,6 @@ publishing {
         }
     }
 
-//    repositories {
-//        maven {
-//            url 'https://repo.repsy.io/mvn/swagata0207/imaginarystore'
-//            credentials(PasswordCredentials)
-//        }
-//    }
-
     repositories {
         maven {
             url 'https://repo.repsy.io/mvn/swagata0207/imaginarystore'
