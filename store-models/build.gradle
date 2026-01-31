@@ -14,5 +14,6 @@ repositories {
 }
 
 dependencies {
-
+    implementation "org.springframework.data:spring-data-mongodb:${springDataMongoDBVersion}"
+    implementation "jakarta.validation:jakarta.validation-api:${validationAPIVersion}"
 }

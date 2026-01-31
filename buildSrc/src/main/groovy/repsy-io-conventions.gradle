@@ -5,16 +5,9 @@ publishing {
         }
     }
 
-//    repositories {
-//        maven {
-//            url 'https://repo.repsy.io/mvn/swagata0207/imaginarystore'
-//            credentials(PasswordCredentials)
-//        }
-//    }
-
     repositories {
         maven {
-            url 'https://repo.repsy.io/mvn/swagata0207/imaginarystore'
+            url = 'https://repo.repsy.io/mvn/swagata0207/imaginarystore'
             credentials {
                 username = findProperty("repoUsr") ?: System.getenv("REPOSITORY_USR")
                 password = findProperty("repoPwd") ?: System.getenv("REPOSITORY_PWD")

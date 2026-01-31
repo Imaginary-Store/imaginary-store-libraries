@@ -1,5 +1,6 @@
 plugins {
     id 'java-common-conventions'
+    id 'dependencies-conventions'
     id 'sonar-conventions'
     id 'version-conventions'
     id 'publication-conventions'

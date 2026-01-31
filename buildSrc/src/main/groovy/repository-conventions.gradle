@@ -4,6 +4,6 @@ repositories {
     }
 
     maven {
-        url "https://repo.repsy.io/mvn/swagata0207/imaginarystore"
+        url = "https://repo.repsy.io/mvn/swagata0207/imaginarystore"
     }
 }
