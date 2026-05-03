@@ -1,0 +1,39 @@
+plugins {
+    id 'jacoco'
+}
+
+jacoco {
+    toolVersion = "0.8.14" // Use a stable version
+}
+
+// Configure the jacocoTestReport task
+tasks.named('jacocoTestReport') {
+    dependsOn tasks.named('test') // Ensure tests run before generating report
+
+    reports {
+        xml.required = true
+        html.required = true
+        csv.required = false
+    }
+
+    // Optional: Exclude generated classes or DTOs from coverage
+    //    afterEvaluate {
+    //        classDirectories.setFrom(files(classDirectories.files.collect {
+    //            fileTree(dir: it, exclude: [
+    //                    "**/DuplicateUserInsertionException.*", // Just an example
+    //                    "**/config/*"
+    //            ])
+    //        }))
+    //    }
+}
+
+// Ensure the check task fails if coverage is too low (Optional)
+tasks.named('jacocoTestCoverageVerification') {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.80 // 80% coverage
+            }
+        }
+    }
+}

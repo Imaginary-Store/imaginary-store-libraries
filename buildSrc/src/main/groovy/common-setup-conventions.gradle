@@ -3,6 +3,7 @@ plugins {
     id 'dependencies-conventions'
     id 'sonar-conventions'
     id 'version-conventions'
+    id 'jacoco-conventions'
     id 'publication-conventions'
     id 'repository-conventions'
     id 'repsy-io-conventions'
