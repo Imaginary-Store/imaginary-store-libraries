@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class AdvancedUser extends BasicUser {
+public class AdvancedUser extends BasicUser implements RegisteredUser {
     private String type;
     private String adminId;
     private String status;

@@ -9,19 +9,24 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+@Document(collection = "BasicUserRecords")
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class BasicUser {
+public class BasicUser implements RegisteredUser {
 
-    @Id private String id;
+    @Id
+    private String id;
 
-    @NotNull private String firstName;
+    @NotNull
+    private String firstName;
 
-    @NotNull private String lastName;
+    @NotNull
+    private String lastName;
 
-    @NotNull @Email private String email;
+    @NotNull
+    @Email
+    private String email;
 
     private String contactNumber;
 }

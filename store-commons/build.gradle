@@ -14,5 +14,10 @@ repositories {
 }
 
 dependencies {
+    api "org.imaginarystore.libraries:store-models:${storeModelsVersion}"
+}
 
+
+test {
+    useJUnitPlatform()
 }
