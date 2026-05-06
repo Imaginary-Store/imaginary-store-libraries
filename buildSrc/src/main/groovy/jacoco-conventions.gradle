@@ -2,19 +2,29 @@ plugins {
     id 'jacoco'
 }
 
-jacoco {
-    toolVersion = "0.8.14" // Use a stable version
+// Configure the jacocoTestReport task
+tasks.named('test', Test) {
+    finalizedBy tasks.named('jacocoTestReport')
 }
 
-// Configure the jacocoTestReport task
-tasks.named('jacocoTestReport') {
-    dependsOn tasks.named('test') // Ensure tests run before generating report
+tasks.named('check').configure {
+        dependsOn tasks.named('jacocoTestCoverageVerification', JacocoCoverageVerification)
+}
 
+jacocoTestReport {
     reports {
         xml.required = true
         html.required = true
-        csv.required = false
     }
+
+    afterEvaluate {
+        classDirectories.from = files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: excludedFromCoverage)
+        })
+    }
+
+    dependsOn tasks.named('compileJava'), tasks.named('test')
+}
 
     // Optional: Exclude generated classes or DTOs from coverage
     //    afterEvaluate {
@@ -25,14 +35,25 @@ tasks.named('jacocoTestReport') {
     //            ])
     //        }))
     //    }
-}
 
-// Ensure the check task fails if coverage is too low (Optional)
-tasks.named('jacocoTestCoverageVerification') {
+jacocoTestCoverageVerification {
+    afterEvaluate {
+        classDirectories.from = files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: excludedFromCoverage)
+        })
+    }
+
     violationRules {
         rule {
             limit {
-                minimum = 0.80 // 80% coverage
+                counter = 'INSTRUCTION'
+                element = 'CLASS'
+                minimum = 0.8
+            }
+            limit {
+                counter = 'INSTRUCTION'
+                element = 'CLASS'
+                minimum = 0.8
             }
         }
     }
